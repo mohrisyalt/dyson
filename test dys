@@ -1,0 +1,13 @@
+if "/v2/" in post["index"]:
+
+        template = Template("<div><h2>$title</h2><p>$body</p></div>")
+
+        post_data = json.loads(post["data"])
+
+        return template.safe_substitute(
+
+            title=html.escape(post_data["title"]),
+
+            body=html.escape(post_data["body"]),
+
+        )
